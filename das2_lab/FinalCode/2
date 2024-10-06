@@ -1,0 +1,24 @@
+def max_stocks(prices, N, max_spend):
+    min_price = 99999
+    total_stock = 0
+    day = -1
+
+    for i in range(N):
+        if prices[i] < min_price:
+            min_price = prices[i]
+            day = i + 1
+
+        if min_price * day <= max_spend:
+            max_spend -= min_price * day
+            total_stock += day
+        else:
+            total_stock += max_spend // min_price
+            break
+
+    return total_stock
+
+# Example usage:
+prices = [7, 10, 4]  # Stock prices for N days
+max_spend = 50  # Maximum money available to spend
+N = len(prices)
+print("Maximum stocks:", max_stocks(prices, N, max_spend))
