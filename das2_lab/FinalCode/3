@@ -1,0 +1,11 @@
+import math
+
+def find_gcd(arr):
+    gcd = arr[0]
+    for num in arr[1:]:
+        gcd = math.gcd(gcd, num)
+    return gcd
+
+# Example usage:
+arr = [12, 16, 20, 28]
+print("GCD of array:", find_gcd(arr))
